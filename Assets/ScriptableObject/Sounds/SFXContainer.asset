@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c52eeacc58fb524ea9d45e06e48e1e4, type: 3}
+  m_Name: SFXContainer
+  m_EditorClassIdentifier: 
+  audioContainerDatas:
+  - audioName: Yay
+    audioClip: {fileID: 8300000, guid: 4772f94dc68418842ab3c2f877ed8fa7, type: 3}
+  - audioName: Lose
+    audioClip: {fileID: 8300000, guid: 7087fa49c6e6b0a48b2c874e7cc5b25d, type: 3}
+  - audioName: Popup
+    audioClip: {fileID: 8300000, guid: 5c25fac244f16884d8651f554b7ba336, type: 3}
+  - audioName: Intro
+    audioClip: {fileID: 8300000, guid: df79a9e95ca7e02478b44b1ed75e53b9, type: 3}
+  - audioName: Win
+    audioClip: {fileID: 8300000, guid: 71af158c2ffe32d46a54ea6d2e9c6862, type: 3}
+  - audioName: Transition
+    audioClip: {fileID: 8300000, guid: 31f40acc75fea4b42aceced3470f62db, type: 3}
