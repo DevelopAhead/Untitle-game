@@ -9,7 +9,6 @@ public class SaveManager : MonoInstance<SaveManager>
     public void SaveGameData(GameData gameData)
     {
         var json = JsonConvert.SerializeObject(gameData);
-        Debug.Log(json);
         PlayerPrefs.SetString("GameData", json);
     }
     public GameData LoadData()
@@ -28,7 +27,6 @@ public class SaveManager : MonoInstance<SaveManager>
         {
             var json = PlayerPrefs.GetString("GameData");
             var gameData = JsonConvert.DeserializeObject<GameData>(json);
-            Debug.Log("aaa " + gameData.NumberList.All(num => num == -1));
             return !gameData.NumberList.All(num => num == -1);
         }
         else
