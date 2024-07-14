@@ -29,7 +29,7 @@ public class GameManager : MonoInstance<GameManager>
     //Rule
     private void Start()
     {
-        
+        Application.targetFrameRate = 60;
         var go = Instantiate(_cardRef,new Vector3(0,-100,0),Quaternion.identity);
         _cardSize = go.GetComponent<MeshFilter>().mesh.bounds.size;
         _cardScale = go.transform.localScale;

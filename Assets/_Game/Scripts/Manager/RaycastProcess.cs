@@ -17,22 +17,27 @@ public class RaycastProcess : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             _pointPosition = Input.mousePosition;
-            Ray ray = Camera.main.ScreenPointToRay(_pointPosition);
-            if (Physics.Raycast(ray, out _raycastHit, Mathf.Infinity, LayerMask.GetMask("Card")))
-            {
-                var card = _raycastHit.collider.gameObject.GetComponentInParent<Card>();
-                if(!card.CardData.IsLock)
-                {
-                    card.Flip();
-                }
-            }
+            CheckRaycast();
         }
         #elif UNITY_IOS || UNITY_ANDROID
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                {
                   _pointPosition = Input.GetTouch(0).position;
+                  CheckRaycast();
                }
         #endif
-        
+
+    }
+    void CheckRaycast()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(_pointPosition);
+        if (Physics.Raycast(ray, out _raycastHit, Mathf.Infinity, LayerMask.GetMask("Card")))
+        {
+            var card = _raycastHit.collider.gameObject.GetComponentInParent<Card>();
+            if (!card.CardData.IsLock)
+            {
+                card.Flip();
+            }
+        }
     }
 }
