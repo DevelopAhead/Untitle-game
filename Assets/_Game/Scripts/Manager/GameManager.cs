@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector2 _cardScale;
     [SerializeField] Vector2 _scale;
     [SerializeField]List<Card> _cardList = new List<Card>();
+    List<int> _numberList;
     private void Start()
     {
         
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         _cardScale = go.transform.localScale;
         _scale = new Vector2(_cardSize.x*_cardScale.x, _cardSize.y*_cardScale.y);
         AddListener();
-        GenerateCard();
+       // GenerateCard();
     }
     void AddListener()
     {
@@ -34,24 +35,34 @@ public class GameManager : MonoBehaviour
         {
             DestroyAllCard();
             GenerateCard();
-            CheckSize();
+            GameSizeChanged();
         });
         this.ObserveEveryValueChanged(_ => _.Height).Subscribe(_ =>
         {
             DestroyAllCard();
             GenerateCard();
-            CheckSize();
+            GameSizeChanged();
         });
     }
     void GenerateCard()
     {
+        int index = 0;
+        _numberList = new List<int>();
+        for (int i = 0; i < (Width*Height)*.5f; i++)
+        {
+            _numberList.Add(i);
+            _numberList.Add(i);
+        }
+        Utils.ShuffleList(_numberList);
         for (int i = 0; i < Width; i++)
         {
             for (int j = 0; j < Height; j++)
             {
-                var go = Instantiate(_cardPrefab, new Vector3((_scale.x + _cardOffset.x)*i, _cardOffset.y, (_scale.y + _cardOffset.z)*j),Quaternion.identity);
+                var go = Instantiate(_cardPrefab, new Vector3((_scale.x + _cardOffset.x)*i, _cardOffset.y, (_scale.y + _cardOffset.z)*j),Quaternion.Euler(0,0,180));
+                go.SetupCardData(new CardData { Number = _numberList[index] });
                 _targetGroup.AddMember(go.transform, 1, 0);
                 _cardList.Add(go);
+                index++;
             }
         }
     }
@@ -64,8 +75,10 @@ public class GameManager : MonoBehaviour
         }
         _cardList.Clear();
     }
-    void CheckSize()
+    void GameSizeChanged()
     {
         OnSizeChanged.OnNext((Width > Height ? Width : Height));
     }
+
+    
 }
