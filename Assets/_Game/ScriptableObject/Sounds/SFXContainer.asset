@@ -13,15 +13,11 @@ MonoBehaviour:
   m_Name: SFXContainer
   m_EditorClassIdentifier: 
   audioContainerDatas:
-  - audioName: Yay
-    audioClip: {fileID: 8300000, guid: 4772f94dc68418842ab3c2f877ed8fa7, type: 3}
-  - audioName: Lose
-    audioClip: {fileID: 8300000, guid: 7087fa49c6e6b0a48b2c874e7cc5b25d, type: 3}
-  - audioName: Popup
-    audioClip: {fileID: 8300000, guid: 5c25fac244f16884d8651f554b7ba336, type: 3}
-  - audioName: Intro
-    audioClip: {fileID: 8300000, guid: df79a9e95ca7e02478b44b1ed75e53b9, type: 3}
+  - audioName: Flip
+    audioClip: {fileID: 8300000, guid: 07543fa61a24d034caa0c207270beb60, type: 3}
   - audioName: Win
-    audioClip: {fileID: 8300000, guid: 71af158c2ffe32d46a54ea6d2e9c6862, type: 3}
-  - audioName: Transition
-    audioClip: {fileID: 8300000, guid: 31f40acc75fea4b42aceced3470f62db, type: 3}
+    audioClip: {fileID: 8300000, guid: 2197d886fd78dc4469a974149379d5dd, type: 3}
+  - audioName: Correct
+    audioClip: {fileID: 8300000, guid: d5db9bbc4352d244fb0a1a9abf5fe2a5, type: 3}
+  - audioName: InCorrect
+    audioClip: {fileID: 8300000, guid: 1eca05cc37d8a8a4abb4f9c399006751, type: 3}
