@@ -7,16 +7,8 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Rendering;
 [DefaultExecutionOrder(10)]
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoInstance<SoundManager>
 {
-    static SoundManager _instance;
-    public static SoundManager Instance
-    {
-        get
-        {
-            return _instance;
-        }
-    }
     public AudioContainer AudioMusic;
     public AudioContainer AudioSoundFX;
     public AudioContainer AudioSoundUI;

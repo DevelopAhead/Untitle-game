@@ -14,7 +14,5 @@ public static class Utils
             list[i] = list[rand];
             list[rand] = temp;
         }
-
-        Debug.Log(string.Join(",", list));
     }
 }
